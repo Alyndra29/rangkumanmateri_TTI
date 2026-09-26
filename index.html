@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Tren Teknologi Informasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .profile-img-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.25rem auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #ef4444, #3b82f6);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #f1f5f9;
+        }
+
+        .profile-card h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-card .nim {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+        
+            .profile-card .major {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-card .university {
+            font-size: 0.95rem;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Menu List Cards */
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .menu-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* Modal / Content View Styling */
+        .content-view {
+            display: none;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .content-view.active {
+            display: block;
+        }
+
+        /* Judul Rata Tengah Sempurna */
+        .content-view h2 {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .module-main-title {
+            display: block;
+            color: #2563eb;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            text-align: center;
+        }
+
+        .module-sub-title {
+            display: block;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .content-view p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .back-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- HALAMAN UTAMA (Profil & Menu List) -->
+        <div id="home-view">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-img-container">
+                    <img src="pfpQ.jpeg" alt="Queena Kaila Alyndra" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'">
+                </div>
+                <h1>Queena Kaila Alyndra</h1>
+                <div class="nim">NIM: 2611500386</div>
+                <div class="major">Teknik Informatika</div>
+                <div class="university">Universitas Budi Luhur</div>
+            </div>
+
+            <!-- List Menu Rangkuman -->
+            <div class="section-title">
+                <span>📚</span> Rangkuman Materi
+            </div>
+
+            <div class="menu-list">
+                <div class="menu-item" onclick="showModule(1)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 1
+                </div>
+                <div class="menu-item" onclick="showModule(2)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 2
+                </div>
+                <div class="menu-item" onclick="showModule(3)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 3
+                </div>
+            </div>
+        </div>
+
+        <div id="module-1" class="content-view">
+            <h2>
+                <span class="module-main-title">Dasar-dasar Teknologi Informasi dan Komputer</span>
+            </h2>
+            <div>
+                <p>Teknologi informasi merupakan teknologi yang digunakan untuk mengolah, menyimpan, dan menyampaikan data menjadi informasi. Komputer bekerja dengan menerima input, memproses data, menghasilkan output, dan menyimpan data untuk digunakan kembali. Perangkat komputer yang umum digunakan antara lain laptop, tablet, desktop, server, smartphone, kamera digital, perangkat wearable, dan perangkat game.</p>
+                <p>Data adalah kumpulan fakta yang belum diproses, sedangkan informasi merupakan data yang sudah memiliki makna. Dalam proses komputer terdapat perangkat input seperti keyboard, mouse, voice input, video input, dan scanner. Hasil pemrosesan dapat ditampilkan melalui perangkat output seperti monitor, printer, dan speaker. Data juga dapat disimpan menggunakan hard disk, SSD, flash drive, memory card, optical disc, maupun cloud storage.</p>
+                <p>Internet merupakan jaringan komputer yang menghubungkan berbagai perangkat dan pengguna di seluruh dunia. Sementara itu, Web merupakan kumpulan informasi berupa halaman web yang dapat diakses melalui Internet. Browser digunakan untuk membuka halaman web, sedangkan search engine digunakan untuk mencari informasi seperti website, gambar, video, berita, dan lainnya.</p>
+                <p>Komputer dan perangkat juga dapat saling terhubung melalui jaringan. Komunikasi dapat dilakukan menggunakan teknologi kabel maupun nirkabel seperti Wi-Fi, Bluetooth, dan cellular radio. Jaringan memungkinkan pengguna berbagi koneksi Internet, perangkat, data, informasi, dan software.</p>
+                <p>Penggunaan teknologi juga memiliki berbagai risiko keamanan dan privasi, seperti virus, malware, spyware, pencurian informasi, dan penyalahgunaan data. Karena itu, pengguna perlu menjaga keamanan perangkat, melindungi informasi pribadi, serta melakukan verifikasi terhadap informasi yang ditemukan di Internet. Materi juga menekankan pentingnya green computing, yaitu penggunaan teknologi dengan mengurangi konsumsi energi dan limbah elektronik.</p>
+                <p>Selain itu, penggunaan komputer perlu memperhatikan kesehatan dan kenyamanan pengguna. Penggunaan teknologi yang tidak tepat dapat berkaitan dengan masalah seperti repetitive strain injury dan computer vision syndrome. Ergonomi diperlukan agar penggunaan perangkat lebih nyaman, efisien, dan aman.</p> 
+                <p><strong>Kesimpulannya,</strong> teknologi informasi mencakup komputer, perangkat digital, data dan informasi, software, Internet, jaringan, serta keamanan digital. Pemahaman dasar mengenai teknologi diperlukan agar kita dapat menggunakan perangkat dan layanan digital secara efektif, aman, dan bertanggung jawab.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+
+
+        <div id="module-2" class="content-view">
+            <h2>
+                <span class="module-main-title">Internet dan Dasar-Dasar Pengembangan Web</span>
+            </h2>
+            <div>
+                <p>Internet merupakan jaringan global yang menghubungkan berbagai bisnis, instansi pemerintah, institusi pendidikan, dan individu. Internet pada awalnya berkembang dari ARPANET pada tahun 1969 untuk memungkinkan para ilmuwan berbagi informasi dan bekerja sama. Untuk terhubung ke Internet, perangkat dapat menggunakan koneksi kabel maupun nirkabel.</p>
+                <p>World Wide Web (WWW) merupakan kumpulan dokumen elektronik yang disebut halaman web. Beberapa halaman yang saling berkaitan membentuk sebuah website, sedangkan web server bertugas mengirimkan halaman web kepada pengguna. Browser digunakan untuk mengakses website, sementara search engine membantu menemukan informasi berdasarkan kata atau topik tertentu. Website juga memiliki berbagai jenis dan dapat menyediakan berbagai media seperti teks, grafik, animasi, audio, video, dan virtual reality.</p>
+                <p>Internet menyediakan berbagai layanan komunikasi dan pertukaran data, seperti email, mailing list, instant messaging, chat, online discussion, VoIP, dan FTP. Email digunakan untuk mengirim dan menerima pesan atau file, sedangkan FTP digunakan untuk mengunggah dan mengunduh file melalui Internet. Dalam menggunakan Internet juga diperlukan netiquette, yaitu aturan atau etika dalam berkomunikasi dan beraktivitas secara online.</p>
+                <p>Dalam pengembangan website, terdapat beberapa teknologi utama. HTML digunakan untuk menyusun dan memberikan struktur pada isi halaman web, CSS digunakan untuk mengatur tampilan seperti font, warna, layout, dan posisi elemen, sedangkan JavaScript digunakan untuk membuat program atau konten yang dapat dijalankan oleh browser. Website juga dapat dibuat dengan bantuan text editor, code editor, atau Content Management System (CMS).</p>
+                <p>HTML menggunakan tags untuk menentukan struktur dan elemen pada halaman web. Dengan HTML, pengembang dapat menambahkan judul, heading, paragraf, gambar, link, daftar, dan video. Salah satu halaman penting dalam sebuah website adalah index.html, yang berperan sebagai halaman utama. Link atau hyperlink memungkinkan pengguna berpindah ke halaman lain, membuka file, atau menjalankan tindakan tertentu.</p>
+                <p>CSS dapat digunakan untuk mengatur tampilan website agar lebih menarik dan sesuai dengan kebutuhan. Sementara itu, JavaScript memungkinkan halaman web memiliki fungsi yang lebih dinamis, misalnya menampilkan tanggal dan waktu. Website juga dapat menggunakan relative reference dan absolute reference untuk menentukan lokasi file atau tujuan link.</p>
+                <p>Setelah website selesai dibuat, halaman dapat diuji melalui browser untuk memastikan semua elemen dan link berfungsi dengan benar. Website kemudian dapat dipublikasikan ke web server menggunakan FTP, dengan mengunggah file seperti index.html, halaman lainnya, dan folder gambar ke server. Setelah dipublikasikan, website dapat diakses menggunakan alamat web yang diberikan oleh server.</p>
+                <p><strong>Kesimpulannya,</strong> Internet dan Web memberikan berbagai kemudahan dalam mengakses informasi, berkomunikasi, dan berbagi data. Pemahaman tentang cara kerja website serta penggunaan HTML, CSS, dan JavaScript menjadi dasar dalam membuat halaman web yang terstruktur, menarik, dan interaktif. Dengan memahami dasar-dasar tersebut, seseorang dapat membuat, mengembangkan, menguji, hingga mempublikasikan website agar dapat diakses oleh pengguna melalui Internet.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+    </div>
+
+<footer>
+    <p>Mari terhubung!</p>
+    <div class="footer-links">
+        <a href="mailto:alyndrakailaa@email.com">Email</a> | 
+
+        <a href="https://www.linkedin.com/in/queena-kaila-alyndra-5161a1435/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+
+        <a href="https://github.com/Alyndra29" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+</footer>
+
+<script>
+        function showModule(num) {
+            // Jika modul 3 ke atas diklik, munculkan alert
+            if (num >= 3) {
+                alert("Rangkuman belum tersedia!");
+                return;
+            }
+
+            // Sembunyikan halaman utama
+            document.getElementById('home-view').style.display = 'none';
+            
+            // Sembunyikan semua modul dulu
+            for(let i = 1; i <= 2; i++) {
+                let mod = document.getElementById('module-' + i);
+                if(mod) mod.classList.remove('active');
+            }
+            
+            // Tampilkan modul yang dipilih
+            let targetMod = document.getElementById('module-' + num);
+            if(targetMod) {
+                targetMod.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function showHome() {
+            // Sembunyikan semua modul
+            for(let i = 1; i <= 2; i++) {
+                let mod = document.getElementById('module-' + i);
+                if(mod) mod.classList.remove('active');
+            }
+            
+            // Tampilkan kembali halaman utama
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
