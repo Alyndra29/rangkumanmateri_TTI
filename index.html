@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Tren Teknologi Informasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .profile-img-container {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.25rem auto;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #ef4444, #3b82f6);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #f1f5f9;
+        }
+
+        .profile-card h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.35rem;
+        }
+
+        .profile-card .nim {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+        
+            .profile-card .major {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-card .university {
+            font-size: 0.95rem;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .menu-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-icon {
+            font-size: 1.1rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .content-view {
+            display: none;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .content-view.active {
+            display: block;
+        }
+
+        .content-view h2 {
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .module-main-title {
+            display: block;
+            color: #2563eb;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            text-align: center;
+        }
+
+        .module-sub-title {
+            display: block;
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .content-view p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .back-btn {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div id="home-view">
+            <div class="profile-card">
+                <div class="profile-img-container">
+                    <img src="pfpQ.jpeg" alt="Queena Kaila Alyndra" class="profile-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'">
+                </div>
+                <h1>Queena Kaila Alyndra</h1>
+                <div class="nim">NIM: 2611500386</div>
+                <div class="major">Teknik Informatika</div>
+                <div class="university">Universitas Budi Luhur</div>
+            </div>
+
+            <div class="menu-list">
+                <div class="menu-item" onclick="showModule(1)">
+                    <span class="menu-icon">👩</span> About the Author
+                </div>
+            </div>
+
+            <p>ㅤ</p>
+
+            <div class="section-title">
+                <span>📚</span> Rangkuman Materi
+            </div>
+
+            <div class="menu-list">
+                <div class="menu-item" onclick="showModule(2)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 1
+                </div>
+                <div class="menu-item" onclick="showModule(3)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 2
+                </div>
+                <div class="menu-item" onclick="showModule(4)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 3
+                </div>
+                <div class="menu-item" onclick="showModule(5)">
+                    <span class="menu-icon">📄</span> Rangkuman Materi 4
+                </div>
+            </div>
+        </div>
+
+                <div id="module-1" class="content-view">
+            <h2>
+                <span class="module-main-title">About the Author</span>
+            </h2>
+            <div>
+                <p>Halo! Saya Queena, mahasiswi Teknik Informatika di Universitas Budi Luhur yang memiliki ketertarikan besar di bidang pengembangan web. Website ini saya gunakan sebagai wadah untuk mendokumentasikan hasil belajar, tugas, dan rangkuman materi kuliah saya mengenai Tren Teknologi Informasi.</p>
+                <p>Saat ini saya sedang menempuh pendidikan S1 Teknik Informatika di Universitas Budi Luhur. Fokus utama saya adalah mempelajari teknologi frontend web development seperti HTML, CSS, dan JavaScript. Proyek ini merupakan bagian dari tugas Tren Teknologi Informasi, sekaligus langkah awal saya dalam membangun portofolio digital menuju karier profesional di industri teknologi.</p>
+                <p>Selamat datang di ruang digital saya! Saya Queena, seorang tech-enthusiast yang sedang belajar di Teknik Informatika Universitas Budi Luhur. Saya suka mengeksplorasi bagaimana teknologi mempermudah kehidupan manusia sehari-hari. Di sini, Anda bisa melihat rangkuman materi kuliah dan perkembangan belajar saya dalam dunia IT. Enjoy your stay!</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+
+        <div id="module-2" class="content-view">
+            <h2>
+                <span class="module-main-title">Pengenalan Teknologi Informasi dan Perkembangannya dalam Kehidupan</span>
+            </h2>
+            <div>
+                <p>Teknologi informasi merupakan bagian penting dalam kehidupan sehari-hari dan terus berkembang sehingga pengguna perlu memiliki literasi digital. Komputer adalah perangkat elektronik yang bekerja berdasarkan instruksi untuk menerima data sebagai input, memprosesnya, dan menghasilkan informasi. Perangkat yang digunakan dalam teknologi informasi sangat beragam, seperti laptop, tablet, desktop, server, smartphone, kamera digital, perangkat game, dan wearable device.</p>
+                <p>Dalam penggunaannya, komputer memiliki berbagai perangkat input, output, memori, dan penyimpanan. Input dapat dilakukan melalui keyboard, pointing device, suara, video, dan scanner, sedangkan output dapat ditampilkan melalui printer, display, dan speaker. Data yang berupa teks, angka, gambar, audio, atau video dapat diproses menjadi informasi yang memiliki makna dan dapat digunakan untuk membantu berbagai aktivitas serta pengambilan keputusan.</p>
+                <p>Teknologi informasi juga berkaitan erat dengan Internet, Web, dan komunikasi digital. Internet merupakan kumpulan jaringan komputer di seluruh dunia, sedangkan web menyediakan berbagai informasi dalam bentuk halaman dan situs web. Pengguna dapat mengakses informasi melalui browser dan mencari informasi menggunakan search engine. Selain itu, terdapat berbagai teknologi komunikasi seperti email, instant messaging, GPS, video conference, Wi-Fi, Bluetooth, dan jaringan seluler yang memungkinkan perangkat saling terhubung dan bertukar informasi.</p>
+                <p>Selain perangkat keras, teknologi informasi juga membutuhkan software atau aplikasi untuk menjalankan berbagai tugas. Sistem operasi dan aplikasi membantu pengguna berinteraksi dengan perangkat dan melakukan aktivitas tertentu. Teknologi dan jaringan kemudian dimanfaatkan dalam berbagai bidang, seperti pendidikan, pemerintahan, keuangan, retail, hiburan, kesehatan, ilmu pengetahuan, perjalanan, penerbitan, dan manufaktur.</p>
+                <p>Seiring meningkatnya penggunaan teknologi, pengguna juga perlu memperhatikan keamanan digital, privasi, kesehatan, dan lingkungan. Risiko seperti virus dan malware perlu diantisipasi, sementara penggunaan teknologi juga harus memperhatikan dampaknya terhadap lingkungan, misalnya dengan menggunakan perangkat hemat energi, mendaur ulang, dan memperpanjang masa penggunaan perangkat.</p>
+                <p>Selain itu, penggunaan komputer perlu memperhatikan kesehatan dan kenyamanan pengguna. Penggunaan teknologi yang tidak tepat dapat berkaitan dengan masalah seperti repetitive strain injury dan computer vision syndrome. Ergonomi diperlukan agar penggunaan perangkat lebih nyaman, efisien, dan aman.</p> 
+                <p><strong>Kesimpulannya,</strong> teknologi informasi mencakup berbagai perangkat, software, jaringan, Internet, dan layanan digital yang saling berkaitan. Perkembangan teknologi memberikan banyak kemudahan dalam belajar, bekerja, berkomunikasi, dan menjalankan berbagai kegiatan, sehingga pemahaman serta literasi digital menjadi penting agar teknologi dapat digunakan secara efektif dan bertanggung jawab.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+
+        <div id="module-3" class="content-view">
+            <h2>
+                <span class="module-main-title">Internet, Web, dan Komunikasi Digital</span>
+            </h2>
+            <div>
+                <p>Materi ini membahas Internet, Web, dan berbagai cara berkomunikasi secara online. Internet merupakan jaringan komputer yang menghubungkan berbagai individu, perusahaan, lembaga pemerintah, dan institusi pendidikan di seluruh dunia. Untuk terhubung ke Internet, pengguna dapat menggunakan koneksi kabel seperti cable, DSL, dan fiber, maupun koneksi nirkabel seperti Wi-Fi, mobile broadband, fixed wireless, dan satelit. Setiap perangkat di Internet memiliki IP address, sedangkan domain name digunakan sebagai nama yang lebih mudah dikenali dan diterjemahkan ke alamat IP melalui DNS.</p>
+                <p>Materi juga menjelaskan World Wide Web (WWW), yang terdiri dari berbagai halaman dan situs web. Browser digunakan untuk mengakses halaman web, sedangkan search engine membantu menemukan informasi berdasarkan topik tertentu. Terdapat berbagai jenis website, seperti situs pendidikan, bisnis, berita, hiburan, kesehatan, perbankan, e-commerce, media sosial, dan lainnya.</p>
+                <p>Web juga dapat menampilkan media digital seperti gambar, animasi, audio, video, dan virtual reality. Selain itu, Internet menyediakan berbagai layanan komunikasi seperti email, instant messaging, chat room, diskusi online, VoIP, dan FTP untuk bertukar pesan, berkomunikasi, serta mengirim atau mengunduh file.</p>
+                <p><strong>Kesimpulannya,</strong> Internet dan Web memudahkan pengguna untuk mencari informasi, mengakses berbagai layanan, menggunakan media digital, serta berkomunikasi dengan orang lain. Dalam menggunakan Internet, pengguna juga perlu menerapkan netiquette, yaitu aturan atau etika dalam berperilaku di Internet.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+
+        <div id="module-4" class="content-view">
+            <h2>
+                <span class="module-main-title">Komputer dan Perangkat Mobile dalam Teknologi Informasi</span>
+            </h2>
+            <div>
+                <p>Materi ini membahas berbagai jenis komputer dan perangkat mobile serta fungsi dan penggunaannya. Komputer yang dibahas meliputi laptop, tablet, desktop, server, terminal, superkomputer, smartphone, kamera digital, e-book reader, media player, wearable device, dan perangkat game. Masing-masing memiliki bentuk dan fungsi yang berbeda sesuai kebutuhan pengguna.</p>
+                <p>Selain itu, terdapat server yang menyediakan layanan untuk perangkat lain dalam jaringan, serta cloud computing yang menyediakan sumber daya dan layanan melalui Internet. Terminal seperti POS, ATM, dan kios swalayan juga digunakan untuk membantu pengguna melakukan berbagai aktivitas secara mandiri.</p>
+                <p>Materi juga menjelaskan embedded computer, yaitu komputer khusus yang menjadi bagian dari produk yang lebih besar, seperti kendaraan, perangkat rumah, robot, dan mesin kantor. Perangkat-perangkat tersebut dapat terhubung melalui berbagai port dan koneksi, baik menggunakan kabel maupun teknologi nirkabel seperti Bluetooth, Wi-Fi, dan NFC.</p>
+                <p>Dalam penggunaan komputer, keamanan perangkat keras dan kesehatan pengguna juga perlu diperhatikan. Perangkat dapat dilindungi dengan kontrol akses, alarm, perangkat keamanan, dan aplikasi pelacak. Penggunaan teknologi yang terlalu lama juga dapat menyebabkan masalah seperti RSI, computer vision syndrome, serta kecanduan teknologi, sehingga diperlukan penggunaan yang aman dan ergonomis.</p>
+                <p><strong>Kesimpulannya,</strong> komputer dan perangkat mobile memiliki berbagai bentuk dan fungsi yang mendukung aktivitas manusia. Pemahaman terhadap jenis perangkat, koneksi, keamanan, serta dampak penggunaannya penting agar teknologi dapat digunakan secara efektif, aman, dan nyaman.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+
+                <div id="module-5" class="content-view">
+            <h2>
+                <span class="module-main-title">Komputer dan Perangkat Mobile dalam Teknologi Informasi</span>
+            </h2>
+            <div>
+                <p>Materi ini membahas berbagai jenis komputer dan perangkat mobile serta fungsi dan penggunaannya. Komputer yang dibahas meliputi laptop, tablet, desktop, server, terminal, superkomputer, smartphone, kamera digital, e-book reader, media player, wearable device, dan perangkat game. Masing-masing memiliki bentuk dan fungsi yang berbeda sesuai kebutuhan pengguna.</p>
+                <p>Selain itu, terdapat server yang menyediakan layanan untuk perangkat lain dalam jaringan, serta cloud computing yang menyediakan sumber daya dan layanan melalui Internet. Terminal seperti POS, ATM, dan kios swalayan juga digunakan untuk membantu pengguna melakukan berbagai aktivitas secara mandiri.</p>
+                <p>Materi juga menjelaskan embedded computer, yaitu komputer khusus yang menjadi bagian dari produk yang lebih besar, seperti kendaraan, perangkat rumah, robot, dan mesin kantor. Perangkat-perangkat tersebut dapat terhubung melalui berbagai port dan koneksi, baik menggunakan kabel maupun teknologi nirkabel seperti Bluetooth, Wi-Fi, dan NFC.</p>
+                <p>Dalam penggunaan komputer, keamanan perangkat keras dan kesehatan pengguna juga perlu diperhatikan. Perangkat dapat dilindungi dengan kontrol akses, alarm, perangkat keamanan, dan aplikasi pelacak. Penggunaan teknologi yang terlalu lama juga dapat menyebabkan masalah seperti RSI, computer vision syndrome, serta kecanduan teknologi, sehingga diperlukan penggunaan yang aman dan ergonomis.</p>
+                <p><strong>Kesimpulannya,</strong> komputer dan perangkat mobile memiliki berbagai bentuk dan fungsi yang mendukung aktivitas manusia. Pemahaman terhadap jenis perangkat, koneksi, keamanan, serta dampak penggunaannya penting agar teknologi dapat digunakan secara efektif, aman, dan nyaman.</p>
+            </div>
+            <button class="back-btn" onclick="showHome()">← Kembali ke Menu Utama</button>
+        </div>
+    </div>
+
+<footer>
+    <p>Mari terhubung!</p>
+    <div class="footer-links">
+        <a href="mailto:alyndrakailaa@email.com">Email</a> | 
+
+        <a href="https://www.linkedin.com/in/queena-kaila-alyndra-5161a1435/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+
+        <a href="https://github.com/Alyndra29" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+</footer>
+
+<script>
+        function showModule(num) {
+            if (num >= 5) {
+                alert("Rangkuman belum tersedia!");
+                return;
+            }
+
+            document.getElementById('home-view').style.display = 'none';
+            
+            for(let i = 1; i <= 3; i++) {
+                let mod = document.getElementById('module-' + i);
+                if(mod) mod.classList.remove('active');
+            }
+            
+            let targetMod = document.getElementById('module-' + num);
+            if(targetMod) {
+                targetMod.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function showHome() {
+            for(let i = 1; i <= 4; i++) {
+                let mod = document.getElementById('module-' + i);
+                if(mod) mod.classList.remove('active');
+            }
+            
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
